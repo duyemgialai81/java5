@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Chào mừng đến với trang chủ</h1>
+<span>Tài Khoản:</span>
+<span th:text="${taiKhoan}"></span> <br>
+<span>Mật Khẩu:</span>
+<span th:text="${matKhau}"></span> <br>
+<span>Họ Và Tên:</span>
+<span th:text="${hovaten}"></span> <br>
+<span>Địa Chỉ:</span>
+<span th:text="${diachi}">Địa Chỉ:</span> <br>
+<span>Năm Sinh:</span>
+<span th:text="${nam}"></span> <br>
+<span>Giới Tính:</span>
+<span th:text="${gt == 'true' ? 'Nam' :'Nữ'}">Giới Tính:</span>
+</body>
+</html>

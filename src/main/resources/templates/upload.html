@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="/api/up-load" method="post" enctype="multipart/form-data">
+    <input type="file" name="file" id="file" required>
+    <button type="submit">upload</button>
+</form>
+<span th:text="${thongBao}"></span>
+</body>
+</html>
