@@ -13,7 +13,7 @@ public class CookiController {
     @GetMapping("/cooki")
     public String cooki(@CookieValue(name = "user", defaultValue = "Khách") String name, Model model){
         model.addAttribute("user",name);
-        return "Chào Mừng Đến với trang cooki"+name;
+        return "Chào Mừng Đ  ến với trang cooki"+name;
     }
     @PostMapping("/add")
     public String addCooki(@RequestParam(name = "user", defaultValue = "Khách") String name, HttpServletResponse httpServletRequest){
