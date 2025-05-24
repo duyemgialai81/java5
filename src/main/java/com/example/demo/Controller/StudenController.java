@@ -1,6 +1,6 @@
-package com.example.demo.Buoi1.Controller;
+package com.example.demo.Controller;
 
-import com.example.demo.Buoi1.Controller.Entity.Student;
+import com.example.demo.Entity.Student;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;

@@ -1,4 +1,4 @@
-package com.example.demo.Buoi1.Controller.Entity;
+package com.example.demo.Entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

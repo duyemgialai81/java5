@@ -1,4 +1,4 @@
-package com.example.demo.Buoi1.Controller;
+package com.example.demo.Controller;
 
 import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
