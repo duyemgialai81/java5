@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div>
+    <label>Loại Sản Phẩm</label>
+    <select name="" id="" >
+        <option th:each="item:${listt}" th:value="${item.id}" th:text="${item.name}"></option>
+    </select>
+
+    <div th:each="item : ${listt}">
+        <label>
+            <input type="radio" th:value="${item.id}" th:name="selectedId" />
+            <span th:text="${item.name}"></span>
+        </label>
+    </div>
+
+</div>
+</body>
+</html>

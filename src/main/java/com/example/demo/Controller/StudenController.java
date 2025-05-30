@@ -1,11 +1,14 @@
 package com.example.demo.Controller;
 
+import ch.qos.logback.core.util.COWArrayList;
 import com.example.demo.Entity.Student;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.File;
+import java.io.IOException;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -37,6 +40,36 @@ public static List<Student> students (){
     public String getAll(Model model){
     List<Student> students = students();
         model.addAttribute("listt", students);
-        return "hien-thi";
+        return "product/Category";
+    }
+    @PostMapping("/save")
+    public String save(@ModelAttribute Student student,
+                       @RequestParam("photo") MultipartFile file) {
+
+        // Lưu ảnh vào thư mục Upload (đảm bảo bạn đã tạo thư mục này trong project)
+        String uploadDir = "src/main/resources/static/Upload/";
+        String fileName = file.getOriginalFilename();
+
+        try {
+            if (!file.isEmpty()) {
+                File saveFile = new File(uploadDir + fileName);
+                file.transferTo(saveFile);
+                student.setPhoto(fileName);
+            } else {
+                student.setPhoto("default.png"); // hoặc giữ nguyên ảnh cũ
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        // Gán ID tự động (tăng dần)
+        COWArrayList<Object> studentList;
+        Long nextId = studentList.isEmpty() ? 1 : studentList.get(studentList.size() - 1).getId() + 1;
+        student.setId(nextId);
+
+        // Thêm vào danh sách
+        studentList.add(student);
+
+        return "redirect:/api/hien-thi";
     }
 }
